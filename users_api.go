@@ -271,7 +271,7 @@ func (a *UsersApiService) UserGet(ctx context.Context) (User,  *http.Response, e
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/user"
+	localVarPath := a.client.cfg.BasePath + "/users"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
