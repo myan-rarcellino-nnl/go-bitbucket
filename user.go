@@ -20,15 +20,16 @@ type User struct {
 
 	Links *AccountLinks `json:"links,omitempty"`
 
-	Username string `json:"username,omitempty"`
+	Username string `json:"name,omitempty"`
 
 	// Account name defined by the owner. Should be used instead of the \"username\" field. Note that \"nickname\" cannot be used in place of \"username\" in URLs and queries, as \"nickname\" is not guaranteed to be unique.
 	Nickname string `json:"nickname,omitempty"`
 
 	// The status of the account. Currently the only possible value is \"active\", but more values may be added in the future.
 	AccountStatus string `json:"account_status,omitempty"`
+	// TODO change to active?
 
-	DisplayName string `json:"display_name,omitempty"`
+	DisplayName string `json:"displayName,omitempty"`
 
 	Website string `json:"website,omitempty"`
 
@@ -39,5 +40,5 @@ type User struct {
 	IsStaff bool `json:"is_staff,omitempty"`
 
 	// The user's Atlassian account ID.
-	AccountId string `json:"account_id,omitempty"`
+	AccountId string `json:"id,omitempty"`
 }
