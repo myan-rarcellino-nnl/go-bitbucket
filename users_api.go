@@ -261,7 +261,7 @@ func (a *UsersApiService) UserEmailsGet(ctx context.Context) (ModelError,  *http
  Returns the currently logged in user.
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @return User*/
-func (a *UsersApiService) UserGet(ctx context.Context) (User,  *http.Response, error) {
+func (a *UsersApiService) UserGet(ctx context.Context, username string) (User,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -271,7 +271,7 @@ func (a *UsersApiService) UserGet(ctx context.Context) (User,  *http.Response, e
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users"
+	localVarPath := a.client.cfg.BasePath + "/users/" + username 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
