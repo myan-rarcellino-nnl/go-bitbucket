@@ -332,13 +332,12 @@ func (a *UsersApiService) UserGet(ctx context.Context) (User,  *http.Response, e
 	return successPayload, localVarHttpResponse, err
 }
 
-func (a *UsersApiService) WhoAmI(ctx context.Context) (User,  *http.Response, error) {
+func (a *UsersApiService) WhoAmI(ctx context.Context) (string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  User
 	)
 
 	// create path and map variables
@@ -382,25 +381,25 @@ func (a *UsersApiService) WhoAmI(ctx context.Context) (User,  *http.Response, er
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return successPayload, nil, err
+		return nil, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
+		return nil, localVarHttpResponse, err
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
-		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
+		return nil, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
 
-	//if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-//		return successPayload, localVarHttpResponse, err
-	//}
+	bodyBytes, readErr := ioutil.ReadAll(localVarHttpResponse.Body)
+	if readErr != nil {
+		return nil, localVarHttpResponse, reportError("Bad ReadAll: %s", readErr)
+	}
 
-
-	return successPayload, localVarHttpResponse, err
+	return string(bodyBytes), localVarHttpResponse, err
 }
 
 
