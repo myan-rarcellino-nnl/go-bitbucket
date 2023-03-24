@@ -12,7 +12,7 @@ package bitbucket
 
 type AccountLinks struct {
 
-	Self *SubjectTypesRepositoryEvents `json:"self,omitempty"`
+	Self []SubjectTypesRepositoryEvents `json:"self,omitempty"`
 
 	Html *SubjectTypesRepositoryEvents `json:"html,omitempty"`
 
