@@ -395,9 +395,9 @@ func (a *UsersApiService) WhoAmI(ctx context.Context) (User,  *http.Response, er
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
 
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
+	//if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+//		return successPayload, localVarHttpResponse, err
+	//}
 
 
 	return successPayload, localVarHttpResponse, err
