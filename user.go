@@ -40,5 +40,5 @@ type User struct {
 	IsStaff bool `json:"is_staff,omitempty"`
 
 	// The user's Atlassian account ID.
-	AccountId string `json:"id,omitempty"`
+	AccountId int `json:"id,omitempty"`
 }
