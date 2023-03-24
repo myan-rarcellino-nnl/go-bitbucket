@@ -381,22 +381,22 @@ func (a *UsersApiService) WhoAmI(ctx context.Context) (string,  *http.Response, 
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, nil, err
+		return "", nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return nil, localVarHttpResponse, err
+		return "", localVarHttpResponse, err
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
-		return nil, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
+		return "", localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
 
 	bodyBytes, readErr := ioutil.ReadAll(localVarHttpResponse.Body)
 	if readErr != nil {
-		return nil, localVarHttpResponse, reportError("Bad ReadAll: %s", readErr)
+		return "", localVarHttpResponse, reportError("Bad ReadAll: %s", readErr)
 	}
 
 	return string(bodyBytes), localVarHttpResponse, err
