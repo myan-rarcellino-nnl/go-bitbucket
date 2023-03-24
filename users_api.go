@@ -342,7 +342,7 @@ func (a *UsersApiService) WhoAmI(ctx context.Context) (User,  *http.Response, er
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/plugins/servlet/applinks/whoami"
+	localVarPath := a.client.cfg.BaseURL + "/plugins/servlet/applinks/whoami"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -56,6 +56,7 @@ type Configuration struct {
 	Scheme        string            	`json:"scheme,omitempty"`
 	DefaultHeader map[string]string 	`json:"defaultHeader,omitempty"`
 	UserAgent     string            	`json:"userAgent,omitempty"`
+	BaseURL       string            	`json:"baseURL,omitempty"`
 	HTTPClient 	  *http.Client
 }
 
