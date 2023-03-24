@@ -350,7 +350,7 @@ func (a *UsersApiService) WhoAmI(ctx context.Context) (User,  *http.Response, er
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "text/plain",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -360,7 +360,7 @@ func (a *UsersApiService) WhoAmI(ctx context.Context) (User,  *http.Response, er
 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
-		"application/json",
+		"text/plain",
 		}
 
 	// set Accept header
